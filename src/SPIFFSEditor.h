@@ -13,10 +13,10 @@ class SPIFFSEditor: public AsyncWebHandler {
   public:
 #ifdef ESP32
     SPIFFSEditor(const fs::FS& fs, const String& username=String(), const String& password=String());
-    SPIFFSEditor(const fs::FS& fs, const String &uri, const String& username, const String& password);
+    SPIFFSEditor(const fs::FS& fs, const String& uri, const String& username=String(), const String& password=String());
 #else
     SPIFFSEditor(const String& username=String(), const String& password=String(), const fs::FS& fs=SPIFFS);
-    SPIFFSEditor(const String &uri, const String& username, const String& password, const fs::FS& fs);
+    SPIFFSEditor(const String &uri, const String& username=String(), const String& password=String(), const fs::FS& fs=SPIFFS);
 #endif
     virtual bool canHandle(AsyncWebServerRequest *request) override final;
     virtual void handleRequest(AsyncWebServerRequest *request) override final;
